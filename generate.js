@@ -17,6 +17,6 @@ const template = handlebars.compile(templateFile);
 const output = template(context);
 
 const fileName = path.basename(inputPath, '.json') + '.php';
-fs.writeFileSync(`output/${fileName}`, output);
+fs.writeFileSync(`build/${fileName}`, output);
 
 console.log(`✅Generated ${fileName}`);

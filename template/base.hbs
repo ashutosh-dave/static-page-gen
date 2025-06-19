@@ -1,19 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{page_title}}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{page_title}}</title>
+  <meta name="description" content="{{meta_description}}">
+  <meta name="keywords" content="{{meta_keywords}}">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>{{headline}}</h1>
-    <p>Serving clients in {{city}} and nearby regions.</p>
-    <a href="{{cta_link}}">{{cta_text}}</a>
 
-    <!-- Form -->
-    <form action="{{form_action}}" method="post">
-        <input type="text" name="name" placeholder="Your Name "/>
-        <button type="submit">{{form_button_text}}</button>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>{{hero_headline}} <span>{{hero_headline_accent}}</span></h1>
+    <p>{{hero_description}}</p>
+    <a href="#services">{{hero_btn_primary}}</a>
+    <a href="#contact">{{hero_btn_secondary}}</a>
+  </section>
+
+  <!-- Stats -->
+  <section class="stats">
+    <div>{{stat_projects}}</div>
+    <div>{{stat_years}}</div>
+    <div>{{stat_satisfaction}}</div>
+    <div>{{stat_support}}</div>
+  </section>
+
+  <!-- Portfolio -->
+  <section class="portfolio">
+    <h2>{{portfolio_title}}</h2>
+    <p>{{portfolio_description}}</p>
+    <div>
+      <h3>{{gallery_main_title}}</h3>
+      <p>{{gallery_main_description}}</p>
+    </div>
+  </section>
+
+  <!-- About City -->
+  <section class="about">
+    <h2>{{about_city_title}}</h2>
+    <p>{{about_city_description}}</p>
+    <div>{{station_1}}: {{station_1_time}}</div>
+    <div>{{station_2}}: {{station_2_time}}</div>
+    <h3>{{connectivity_title}}</h3>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    {{#each features}}
+      <div>
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+      </div>
+    {{/each}}
+  </section>
+
+  <!-- Office Types -->
+  <section class="office-types">
+    {{#each office_types}}
+      <div>
+        <h3>{{title}}</h3>
+        <p>{{description}}</p>
+        <span>{{price}}</span>
+      </div>
+    {{/each}}
+  </section>
+
+  <!-- Amenities -->
+  <section class="amenities">
+    {{#each amenities}}
+      <div>
+        <h3>{{title}}</h3>
+        <h4>{{subtitle}}</h4>
+        <p>{{description}}</p>
+      </div>
+    {{/each}}
+  </section>
+
+  <!-- Amenity Categories -->
+  <section class="amenity-categories">
+    {{#each amenity_categories}}
+      <h4>{{@key}}</h4>
+      <ul>
+        {{#each this}}
+          <li>{{this}}</li>
+        {{/each}}
+      </ul>
+    {{/each}}
+  </section>
+
+  <!-- FAQs -->
+  <section class="faqs">
+    {{#each faqs}}
+      <div>
+        <h3>{{question}}</h3>
+        <p>{{answer}}</p>
+      </div>
+    {{/each}}
+  </section>
+
+  <!-- Contact -->
+  <section class="contact">
+    <h2>{{contact_title}}</h2>
+    <p>{{contact_description}}</p>
+    <form action="#">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Email">
+      <button>{{form_button_text}}</button>
     </form>
+    <div>
+      <h3>{{form_success_title}}</h3>
+      <p>{{form_success_description}}</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>{{cta_title}}</h2>
+    <p>{{cta_description}}</p>
+    <div>{{cta_call_label}} {{cta_phone_number}}</div>
+    <a href="#contact">{{cta_form_link_text}}</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>{{footer_brand_title}}</div>
+    <p>{{footer_brand_description}}</p>
+    <p>{{footer_location}}</p>
+    <p>{{footer_phone}}</p>
+  </footer>
+
 </body>
 </html>
