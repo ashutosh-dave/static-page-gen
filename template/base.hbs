@@ -1,136 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{page_title}}</title>
-  <meta name="description" content="{{meta_description}}">
-  <meta name="keywords" content="{{meta_keywords}}">
-  <link rel="stylesheet" href="assets/css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{site.title}} | {{page.title}}</title>
+    <meta name="description" content="{{page.description}}">
+    <meta name="keywords" content="{{page.keywords}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{site.favicon32}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{site.favicon16}}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{site.appleTouchIcon}}">
+    <link rel="manifest" href="{{site.webmanifest}}">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="nav" id="navigation">
+        <div class="nav-container">
+            <div class="nav-content">
+                <a href="#" class="nav-logo">{{site.brandName}}</a>
+                <!-- Desktop Navigation -->
+                <div class="nav-links">
+                    {{#each navigation.links}}
+                    <a href="{{this.href}}" class="nav-link">{{this.text}}</a>
+                    {{/each}}
+                </div>
+                <div class="nav-buttons">
+                    <button class="btn btn-ghost">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        {{navigation.callButton.text}}
+                    </button>
+                    <button class="btn btn-primary">{{navigation.quoteButton.text}}</button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <svg class="icon menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                    <svg class="icon close-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="mobile-menu hidden" id="mobileMenu">
+                <div class="mobile-menu-content">
+                    {{#each navigation.links}}
+                    <a href="{{this.href}}" class="mobile-menu-link">{{this.text}}</a>
+                    {{/each}}
+                    <div class="mobile-menu-buttons">
+                        <button class="btn btn-outline">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            {{navigation.callButton.text}}
+                        </button>
+                        <button class="btn btn-primary">{{navigation.quoteButton.text}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>{{hero_headline}} <span>{{hero_headline_accent}}</span></h1>
-    <p>{{hero_description}}</p>
-    <a href="#services">{{hero_btn_primary}}</a>
-    <a href="#contact">{{hero_btn_secondary}}</a>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            {{#each hero.slides}}
+            <div class="hero-slide {{#if @first}}active{{/if}}" style="background-image: url('{{this.image}}')">
+                <div class="hero-overlay"></div>
+            </div>
+            {{/each}}
 
-  <!-- Stats -->
-  <section class="stats">
-    <div>{{stat_projects}}</div>
-    <div>{{stat_years}}</div>
-    <div>{{stat_satisfaction}}</div>
-    <div>{{stat_support}}</div>
-  </section>
+            <button class="hero-slider-btn hero-slider-prev" aria-label="Previous slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+            <button class="hero-slider-btn hero-slider-next" aria-label="Next slide">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 18l6-6-6-6"/>
+                </svg>
+            </button>
 
-  <!-- Portfolio -->
-  <section class="portfolio">
-    <h2>{{portfolio_title}}</h2>
-    <p>{{portfolio_description}}</p>
-    <div>
-      <h3>{{gallery_main_title}}</h3>
-      <p>{{gallery_main_description}}</p>
+            <div class="hero-slider-dots">
+                {{#each hero.slides}}
+                <button class="hero-slider-dot {{#if @first}}active{{/if}}" aria-label="Slide {{add @index 1}}"></button>
+                {{/each}}
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title" id="hero-title">
+                    {{hero.title.line1}}
+                    <span class="hero-title-accent" id="hero-title-accent">{{hero.title.accent}}</span>
+                </h1>
+                <p class="hero-description" id="hero-description">
+                    {{hero.description}}
+                </p>
+                <div class="hero-buttons">
+                    <a href="{{hero.primaryButton.href}}" class="btn btn-primary btn-lg" id="hero-btn-primary">{{hero.primaryButton.text}}</a>
+                    <a href="{{hero.secondaryButton.href}}" class="btn btn-outline btn-lg" id="hero-btn-secondary">{{hero.secondaryButton.text}}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats section-spacing">
+        <div class="container">
+            <div class="stats-grid">
+                {{#each stats}}
+                <div class="stat-item">
+                    <span class="stat-number">{{this.number}}</span>
+                    <span class="stat-label">{{this.label}}</span>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{gallery.title}}</h2>
+                <p class="section-description">
+                    {{gallery.description}}
+                </p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-main">
+                    <div class="gallery-main-image">
+                        <img id="mainGalleryImage" src="{{gallery.mainImage.src}}" alt="{{gallery.mainImage.alt}}">
+                        <div class="gallery-image-overlay"></div>
+                        <div class="gallery-image-info">
+                            <h3 id="mainGalleryTitle">{{gallery.mainImage.title}}</h3>
+                            <p id="mainGalleryDescription">{{gallery.mainImage.description}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-thumbnails">
+                    {{#each gallery.thumbnails}}
+                    <button class="gallery-thumbnail {{#if @first}}active{{/if}}" data-title="{{this.title}}" data-description="{{this.description}}">
+                        <img src="{{this.image}}" alt="{{this.alt}}">
+                        <div class="gallery-thumbnail-overlay"></div>
+                    </button>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Section -->
+    <section class="why-choose section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{whyChoose.title}}</h2>
+                <p class="section-description">
+                    {{whyChoose.description}}
+                </p>
+            </div>
+
+            <div class="features-grid">
+                {{#each whyChoose.features}}
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <div class="feature-icon-inner feature-icon-{{add @index 1}}"></div>
+                    </div>
+                    <h3 class="feature-title">{{this.title}}</h3>
+                    <p class="feature-description">
+                        {{this.description}}
+                    </p>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Get Our Brochure Section -->
+    <section class="brochure section-spacing">
+        <div class="container">
+            <div class="brochure-content">
+                <div class="brochure-text">
+                    <h2 class="brochure-title">{{brochure.title}}</h2>
+                    <p class="brochure-description">
+                        {{brochure.description}}
+                    </p>
+                    <div class="brochure-features">
+                        {{#each brochure.features}}
+                        <div class="brochure-feature">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14,2 14,8 20,8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10,9 9,9 8,9"></polyline>
+                            </svg>
+                            <span>{{this}}</span>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="brochure-form">
+                    <form class="brochure-form-content" id="brochureForm">
+                        <div class="form-group">
+                            <input type="text" id="brochure-name" name="name" class="form-input" placeholder="{{brochure.form.namePlaceholder}} *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="brochure-email" name="email" class="form-input" placeholder="{{brochure.form.emailPlaceholder}} *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="brochure-company" name="company" class="form-input" placeholder="{{brochure.form.companyPlaceholder}}">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7,10 12,15 17,10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            {{brochure.form.submitText}}
+                        </button>
+                        <p class="form-note">{{brochure.form.note}}</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{testimonials.title}}</h2>
+                <p class="section-description">
+                    {{testimonials.description}}
+                </p>
+            </div>
+
+            <div class="testimonials-grid">
+                {{#each testimonials.items}}
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        {{#times 5}}
+                        <svg class="star" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        {{/times}}
+                    </div>
+                    <p class="testimonial-text">
+                        "{{this.quote}}"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="{{this.avatar}}" alt="{{this.name}}">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">{{this.name}}</h4>
+                            <p class="testimonial-company">{{this.company}}</p>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Banner -->
+    <section class="cta-banner section-spacing">
+        <div class="container">
+            <div class="cta-header">
+                <h2 class="cta-title">{{cta.title}}</h2>
+                <p class="cta-description">
+                    {{cta.description}}
+                </p>
+            </div>
+
+            <div class="cta-features">
+                {{#each cta.features}}
+                <div class="cta-feature">
+                    <div class="cta-feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            {{{this.icon}}}
+                        </svg>
+                    </div>
+                    <h3 class="cta-feature-title">{{this.title}}</h3>
+                    <p class="cta-feature-description">{{this.description}}</p>
+                </div>
+                {{/each}}
+            </div>
+
+            <div class="cta-action">
+                <button class="btn btn-cta">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    {{cta.callButton.text}}: {{cta.callButton.phone}}
+                </button>
+                <p class="cta-note">
+                    {{cta.note.text}} <a href="{{cta.note.link}}" class="cta-link">{{cta.note.linkText}}</a> {{cta.note.suffix}}
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Types Section -->
+    <section class="office-types section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{officeTypes.title}}</h2>
+                <p class="section-description">
+                    {{officeTypes.description}}
+                </p>
+            </div>
+
+            <div class="office-types-container">
+                <div class="office-types-content">
+                    {{#each officeTypes.services}}
+                    <div class="office-type-card">
+                        <div class="office-type-header">
+                            <div class="office-type-dot office-type-dot-{{add @index 1}}"></div>
+                            <h3 class="office-type-title">{{this.title}}</h3>
+                        </div>
+                        <p class="office-type-description">{{this.description}}</p>
+                        <div class="office-type-price">{{this.price}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="office-types-image">
+                    <img src="{{officeTypes.image}}" alt="{{officeTypes.imageAlt}}">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Showcase -->
+    <section class="location section-spacing" id="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{location.title}}</h2>
+                <p class="section-description">
+                    {{location.description}}
+                </p>
+            </div>
+
+            <div class="location-grid">
+                <div class="location-image">
+                    <div class="location-image-container">
+                        <img src="{{location.mainImage.src}}" alt="{{location.mainImage.alt}}">
+                        <div class="location-image-overlay"></div>
+                    </div>
+                    {{#each location.cards}}
+                    <div class="location-card location-card-{{add @index 1}}">
+                        <div class="location-card-label">{{this.label}}</div>
+                        <div class="location-card-value">{{this.value}}</div>
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="location-content">
+                    <h3 class="location-title">{{location.content.title}}</h3>
+                    <div class="location-features">
+                        {{#each location.content.features}}
+                        <div class="location-feature">
+                            <div class="location-feature-dot location-feature-dot-{{add @index 1}}"></div>
+                            <div class="location-feature-content">
+                                <h4 class="location-feature-title">{{this.title}}</h4>
+                                <p class="location-feature-description">
+                                    {{this.description}}
+                                </p>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section class="amenities section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{amenities.title}}</h2>
+                <p class="section-description">
+                    {{amenities.description}}
+                </p>
+            </div>
+
+            <div class="amenities-slider">
+                <div class="amenities-slider-container">
+                    {{#each amenities.slides}}
+                    <div class="amenities-slide">
+                        <div class="amenity-image">
+                            <img src="{{this.image}}" alt="{{this.alt}}">
+                            <div class="amenity-overlay"></div>
+                            <div class="amenity-content">
+                                <h3 class="amenity-title">{{this.title}}</h3>
+                                <p class="amenity-subtitle">{{this.subtitle}}</p>
+                                <p class="amenity-description">{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+                <button class="slider-btn slider-btn-prev" aria-label="Previous slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+                <button class="slider-btn slider-btn-next" aria-label="Next slide">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="amenities-details">
+                <div class="amenities-details-grid">
+                    {{#each amenities.categories}}
+                    <div class="amenities-category">
+                        <h3 class="amenities-category-title">{{this.title}}</h3>
+                        <ul class="amenities-list">
+                            {{#each this.items}}
+                            <li class="amenities-list-item">
+                                <div class="amenities-list-dot"></div>
+                                <span>{{this}}</span>
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq section-spacing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">{{faq.title}}</h2>
+                <p class="section-description">
+                    {{faq.description}}
+                </p>
+            </div>
+
+            <div class="faq-list">
+                {{#each faq.items}}
+                <div class="faq-item">
+                    <button class="faq-question" data-faq="{{@index}}">
+                        <span>{{this.question}}</span>
+                        <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="6,9 12,15 18,9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>{{this.answer}}</p>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact section-spacing" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <div class="contact-badge">
+                    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+                    </svg>
+                    <span>{{contact.badge}}</span>
+                </div>
+                <h2 class="section-title">{{contact.title}}</h2>
+                <p class="section-description">
+                    {{contact.description}}
+                </p>
+            </div>
+
+            <form class="contact-form quick-form" id="contactForm">
+                <div class="form-success hidden" id="formSuccess">
+                    <div class="form-success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="form-success-title">{{contact.success.title}}</h3>
+                    <p class="form-success-description">
+                        {{contact.success.description}}
+                    </p>
+                </div>
+
+                <div class="form-content" id="formContent">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="contact-name" name="name" class="form-input" placeholder="{{contact.form.namePlaceholder}} *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="contact-email" name="email" class="form-input" placeholder="{{contact.form.emailPlaceholder}} *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="tel" id="contact-phone" name="phone" class="form-input" placeholder="{{contact.form.phonePlaceholder}} *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="company-name" name="company_name" class="form-input" placeholder="{{contact.form.companyPlaceholder}} *" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="message" name="message" placeholder="{{contact.form.messagePlaceholder}} *" required>
+                    </div>
+
+                    <div class="form-submit-wrapper">
+                        <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                            <span id="submitText">{{contact.form.submitText}}</span>
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <p class="form-note">{{contact.form.note}}</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Sticky CTA -->
+    <div class="sticky-cta hidden" id="stickyCta">
+        <div class="sticky-cta-content">
+            <button class="btn btn-primary">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                </svg>
+                {{stickyCta.tourButton}}
+            </button>
+            <button class="btn btn-outline">
+                <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                {{stickyCta.callButton}}
+            </button>
+        </div>
     </div>
-  </section>
 
-  <!-- About City -->
-  <section class="about">
-    <h2>{{about_city_title}}</h2>
-    <p>{{about_city_description}}</p>
-    <div>{{station_1}}: {{station_1_time}}</div>
-    <div>{{station_2}}: {{station_2_time}}</div>
-    <h3>{{connectivity_title}}</h3>
-  </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3 class="footer-brand-title">{{footer.brand.title}}</h3>
+                    <p class="footer-brand-description">
+                        {{footer.brand.description}}
+                    </p>
+                </div>
+                {{#each footer.columns}}
+                <div class="footer-column">
+                    <h4 class="footer-column-title">{{this.title}}</h4>
+                    <ul class="footer-links">
+                        {{#each this.links}}
+                        <li><a href="{{this.href}}" class="footer-link">{{this.text}}</a></li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/each}}
+                <div class="footer-column">
+                    <h4 class="footer-column-title">{{footer.contact.title}}</h4>
+                    <div class="footer-contact">
+                        {{#each footer.contact.items}}
+                        <div class="footer-contact-item">
+                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                {{{this.icon}}}
+                            </svg>
+                            <span>{{this.text}}</span>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; {{footer.copyright.year}} {{footer.copyright.brand}}. {{footer.copyright.text}}</p>
+            </div>
+        </div>
+    </footer>
 
-  <!-- Features -->
-  <section class="features">
-    {{#each features}}
-      <div>
-        <h3>{{title}}</h3>
-        <p>{{description}}</p>
-      </div>
-    {{/each}}
-  </section>
-
-  <!-- Office Types -->
-  <section class="office-types">
-    {{#each office_types}}
-      <div>
-        <h3>{{title}}</h3>
-        <p>{{description}}</p>
-        <span>{{price}}</span>
-      </div>
-    {{/each}}
-  </section>
-
-  <!-- Amenities -->
-  <section class="amenities">
-    {{#each amenities}}
-      <div>
-        <h3>{{title}}</h3>
-        <h4>{{subtitle}}</h4>
-        <p>{{description}}</p>
-      </div>
-    {{/each}}
-  </section>
-
-  <!-- Amenity Categories -->
-  <section class="amenity-categories">
-    {{#each amenity_categories}}
-      <h4>{{@key}}</h4>
-      <ul>
-        {{#each this}}
-          <li>{{this}}</li>
-        {{/each}}
-      </ul>
-    {{/each}}
-  </section>
-
-  <!-- FAQs -->
-  <section class="faqs">
-    {{#each faqs}}
-      <div>
-        <h3>{{question}}</h3>
-        <p>{{answer}}</p>
-      </div>
-    {{/each}}
-  </section>
-
-  <!-- Contact -->
-  <section class="contact">
-    <h2>{{contact_title}}</h2>
-    <p>{{contact_description}}</p>
-    <form action="#">
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Email">
-      <button>{{form_button_text}}</button>
-    </form>
-    <div>
-      <h3>{{form_success_title}}</h3>
-      <p>{{form_success_description}}</p>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta">
-    <h2>{{cta_title}}</h2>
-    <p>{{cta_description}}</p>
-    <div>{{cta_call_label}} {{cta_phone_number}}</div>
-    <a href="#contact">{{cta_form_link_text}}</a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div>{{footer_brand_title}}</div>
-    <p>{{footer_brand_description}}</p>
-    <p>{{footer_location}}</p>
-    <p>{{footer_phone}}</p>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
-
+    <script src="script.js"></script>
 </body>
-</html>
+</html> 

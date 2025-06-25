@@ -2,6 +2,20 @@ const fs = require('fs');
 const path = require('path');
 const handlebars = require('handlebars');
 
+// Register the 'add' helper
+handlebars.registerHelper('add', function(a, b) {
+    return a + b;
+});
+
+// Register the 'times' helper
+handlebars.registerHelper('times', function(n, block) {
+    let accum = '';
+    for (let i = 0; i < n; ++i) {
+        accum += block.fn(i);
+    }
+    return accum;
+});
+
 const inputPath = process.argv[2];
 if(!inputPath){
     console.error("Usage: node generate.js content/london.json")
