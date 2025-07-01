@@ -1,0 +1,314 @@
+{{> header}}
+
+<!-- Hero Section (Larger for Landing Pages) -->
+<section class="hero hero-landing">
+    <div class="hero-slider">
+        {{#each hero.slides}}
+        <div class="hero-slide {{#if @first}}active{{/if}}" style="background-image: url('{{this.image}}')">
+            <div class="hero-overlay hero-overlay-dark"></div>
+        </div>
+        {{/each}}
+    </div>
+
+    <div class="container">
+        <div class="hero-content hero-content-centered">
+            <h1 class="hero-title hero-title-large" id="hero-title">
+                {{hero.title.line1}}
+                {{#if hero.title.accent}}
+                <span class="hero-title-accent" id="hero-title-accent">{{hero.title.accent}}</span>
+                {{/if}}
+            </h1>
+            
+            {{#if hero.subtitle}}
+            <h2 class="hero-subtitle">{{hero.subtitle}}</h2>
+            {{/if}}
+            
+            <p class="hero-description hero-description-large" id="hero-description">
+                {{hero.description}}
+            </p>
+            
+            <!-- Landing Page Specific Features -->
+            {{#if hero.features}}
+            <ul class="hero-features">
+                {{#each hero.features}}
+                <li class="hero-feature">
+                    <svg class="hero-feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="20,6 9,17 4,12"></polyline>
+                    </svg>
+                    <span>{{this}}</span>
+                </li>
+                {{/each}}
+            </ul>
+            {{/if}}
+            
+            <div class="hero-buttons hero-buttons-stacked">
+                <a href="{{hero.primaryButton.href}}" class="btn btn-primary btn-xl cta-button" id="hero-btn-primary">
+                    {{hero.primaryButton.text}}
+                    {{#if hero.primaryButton.subtext}}
+                    <small>{{hero.primaryButton.subtext}}</small>
+                    {{/if}}
+                </a>
+                
+                {{#if hero.secondaryButton}}
+                <a href="{{hero.secondaryButton.href}}" class="btn btn-outline btn-lg" id="hero-btn-secondary">
+                    {{hero.secondaryButton.text}}
+                </a>
+                {{/if}}
+            </div>
+            
+            <!-- Trust Indicators -->
+            {{#if hero.trustIndicators}}
+            <div class="hero-trust">
+                {{#each hero.trustIndicators}}
+                <div class="trust-indicator">
+                    {{#if this.icon}}
+                    <img src="{{this.icon}}" alt="{{this.text}}" class="trust-icon">
+                    {{/if}}
+                    <span class="trust-text">{{this.text}}</span>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+
+<!-- Social Proof Section -->
+{{#if socialProof}}
+<section class="social-proof section-spacing-sm">
+    <div class="container">
+        <div class="social-proof-content">
+            {{#if socialProof.title}}
+            <h3 class="social-proof-title">{{socialProof.title}}</h3>
+            {{/if}}
+            
+            {{#if socialProof.logos}}
+            <div class="company-logos">
+                {{#each socialProof.logos}}
+                <img src="{{this.src}}" alt="{{this.alt}}" class="company-logo">
+                {{/each}}
+            </div>
+            {{/if}}
+            
+            {{#if socialProof.stats}}
+            <div class="social-proof-stats">
+                {{#each socialProof.stats}}
+                <div class="social-stat">
+                    <span class="social-stat-number">{{this.number}}</span>
+                    <span class="social-stat-label">{{this.label}}</span>
+                </div>
+                {{/each}}
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<!-- Value Proposition Section -->
+{{#if valueProposition}}
+<section class="value-proposition section-spacing">
+    <div class="container">
+        <div class="section-header section-header-centered">
+            <h2 class="section-title">{{valueProposition.title}}</h2>
+            {{#if valueProposition.subtitle}}
+            <p class="section-subtitle">{{valueProposition.subtitle}}</p>
+            {{/if}}
+            <p class="section-description">{{valueProposition.description}}</p>
+        </div>
+
+        <div class="value-grid">
+            {{#each valueProposition.benefits}}
+            <div class="value-item">
+                <div class="value-icon">
+                    {{#if this.icon}}
+                    <img src="{{this.icon}}" alt="{{this.title}}">
+                    {{else}}
+                    <div class="value-icon-placeholder value-icon-{{add @index 1}}"></div>
+                    {{/if}}
+                </div>
+                <h3 class="value-title">{{this.title}}</h3>
+                <p class="value-description">{{this.description}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<!-- Testimonials Section (Prominent for Landing Pages) -->
+{{#if testimonials}}
+<section class="testimonials testimonials-landing section-spacing">
+    <div class="container">
+        <div class="section-header section-header-centered">
+            <h2 class="section-title">{{testimonials.title}}</h2>
+            <p class="section-description">{{testimonials.description}}</p>
+        </div>
+
+        <div class="testimonials-slider">
+            {{#each testimonials.featured}}
+            <div class="testimonial-slide {{#if @first}}active{{/if}}">
+                <div class="testimonial-content">
+                    <div class="testimonial-quote">
+                        <svg class="quote-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
+                        </svg>
+                        <blockquote>"{{this.quote}}"</blockquote>
+                    </div>
+                    <div class="testimonial-author">
+                        {{#if this.avatar}}
+                        <img src="{{this.avatar}}" alt="{{this.name}}" class="testimonial-avatar">
+                        {{/if}}
+                        <div class="testimonial-info">
+                            <h4 class="testimonial-name">{{this.name}}</h4>
+                            <p class="testimonial-company">{{this.title}}, {{this.company}}</p>
+                            {{#if this.rating}}
+                            <div class="testimonial-rating">
+                                {{#times this.rating}}
+                                <svg class="star filled" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                {{/times}}
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<!-- Lead Capture Section -->
+{{#if leadCapture}}
+<section class="lead-capture section-spacing">
+    <div class="container">
+        <div class="lead-capture-content">
+            <div class="lead-capture-text">
+                <h2 class="lead-capture-title">{{leadCapture.title}}</h2>
+                <p class="lead-capture-description">{{leadCapture.description}}</p>
+                
+                {{#if leadCapture.benefits}}
+                <ul class="lead-capture-benefits">
+                    {{#each leadCapture.benefits}}
+                    <li class="lead-capture-benefit">
+                        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <polyline points="20,6 9,17 4,12"></polyline>
+                        </svg>
+                        <span>{{this}}</span>
+                    </li>
+                    {{/each}}
+                </ul>
+                {{/if}}
+            </div>
+            
+            <div class="lead-capture-form">
+                <form class="lead-form" id="leadCaptureForm" action="lead-form.php" method="post">
+                    <h3 class="lead-form-title">{{leadCapture.form.title}}</h3>
+                    
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-input" placeholder="{{leadCapture.form.namePlaceholder}} *" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-input" placeholder="{{leadCapture.form.emailPlaceholder}} *" required>
+                    </div>
+                    
+                    {{#if leadCapture.form.includePhone}}
+                    <div class="form-group">
+                        <input type="tel" name="phone" class="form-input" placeholder="{{leadCapture.form.phonePlaceholder}}">
+                    </div>
+                    {{/if}}
+                    
+                    {{#if leadCapture.form.includeCompany}}
+                    <div class="form-group">
+                        <input type="text" name="company" class="form-input" placeholder="{{leadCapture.form.companyPlaceholder}}">
+                    </div>
+                    {{/if}}
+                    
+                    <button type="submit" class="btn btn-primary btn-xl">
+                        {{leadCapture.form.submitText}}
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    
+                    <p class="form-note">{{leadCapture.form.note}}</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<!-- FAQ Section (Condensed for Landing Pages) -->
+{{#if faq}}
+<section class="faq faq-condensed section-spacing">
+    <div class="container">
+        <div class="section-header section-header-centered">
+            <h2 class="section-title">{{faq.title}}</h2>
+            <p class="section-description">{{faq.description}}</p>
+        </div>
+
+        <div class="faq-grid">
+            {{#each faq.items}}
+            <div class="faq-item">
+                <h3 class="faq-question-static">{{this.question}}</h3>
+                <p class="faq-answer-static">{{this.answer}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+<!-- Final CTA Section -->
+{{#if finalCta}}
+<section class="final-cta section-spacing">
+    <div class="container">
+        <div class="final-cta-content">
+            <h2 class="final-cta-title">{{finalCta.title}}</h2>
+            <p class="final-cta-description">{{finalCta.description}}</p>
+            
+            {{#if finalCta.urgency}}
+            <div class="cta-urgency">
+                <svg class="urgency-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <polyline points="12,6 12,12 16,14"></polyline>
+                </svg>
+                <span>{{finalCta.urgency}}</span>
+            </div>
+            {{/if}}
+            
+            <div class="final-cta-buttons">
+                <a href="{{finalCta.primaryButton.href}}" class="btn btn-primary btn-xl cta-button">
+                    {{finalCta.primaryButton.text}}
+                    {{#if finalCta.primaryButton.subtext}}
+                    <small>{{finalCta.primaryButton.subtext}}</small>
+                    {{/if}}
+                </a>
+                
+                {{#if finalCta.secondaryButton}}
+                <a href="{{finalCta.secondaryButton.href}}" class="btn btn-outline btn-lg">
+                    {{finalCta.secondaryButton.text}}
+                </a>
+                {{/if}}
+            </div>
+            
+            {{#if finalCta.guarantee}}
+            <div class="cta-guarantee">
+                <svg class="guarantee-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M21 12c.552 0 1-.448 1-1V5c0-.552-.448-1-1-1H3c-.552 0-1 .448-1 1v6c0 .552.448 1 1 1"/>
+                </svg>
+                <span>{{finalCta.guarantee}}</span>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</section>
+{{/if}}
+
+{{> footer}} 

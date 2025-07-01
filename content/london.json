@@ -1,11 +1,60 @@
 {
-    "page_title": "Premium Offices in London - Your Next Workspace",
-    "meta_description": "Discover fully-managed office spaces in London with flexible leasing.",
-    "headline": "Offices Tailored for London’s Businesses",
-    "city": "London",
-    "cta_link": "/contact-us.php",
-    "cta_text": "Book a Free Tour",
-    "form_action": "/submit-form.php",
-    "form_button_text": "Send Enquiry"
+  "site": {
+    "title": "Premium Offices in London",
+    "brandName": "London Office Solutions",
+    "url": "https://example.com",
+    "favicon32": "/favicon-32x32.png",
+    "favicon16": "/favicon-16x16.png",
+    "appleTouchIcon": "/apple-touch-icon.png",
+    "webmanifest": "/site.webmanifest",
+    "ogImage": "/og-image.jpg",
+    "homeUrl": "/"
+  },
+  "page": {
+    "title": "Your Next Workspace",
+    "description": "Discover fully-managed office spaces in London with flexible leasing.",
+    "keywords": "London, office, workspace, business, flexible, leasing",
+    "canonical": "/"
+  },
+  "hero": {
+    "slides": [
+      { "image": "assets/img/london-slide1.jpg" },
+      { "image": "assets/img/london-slide2.jpg" },
+      { "image": "assets/img/london-slide3.jpg" }
+    ],
+    "title": {
+      "line1": "Offices Tailored for",
+      "accent": "London's Businesses"
+    },
+    "description": "Discover fully-managed office spaces in London with flexible leasing and premium amenities.",
+    "primaryButton": {
+      "text": "Book a Free Tour",
+      "href": "#contact"
+    },
+    "secondaryButton": {
+      "text": "View Spaces",
+      "href": "#gallery"
+    }
+  },
+  "contact": {
+    "email": "info@london-offices.com",
+    "phone": "+44 20 7123 4567"
+  },
+  "navigation": {
+    "links": [
+      { "text": "Home", "href": "/" },
+      { "text": "Locations", "href": "#locations" },
+      { "text": "Services", "href": "#services" },
+      { "text": "Contact", "href": "#contact" }
+    ],
+    "callButton": {
+      "text": "Call Now",
+      "phone": "+44 20 7123 4567"
+    },
+    "quoteButton": {
+      "text": "Get Quote",
+      "href": "#contact"
+    }
   }
+}
   

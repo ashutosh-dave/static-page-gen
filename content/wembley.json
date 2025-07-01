@@ -1,0 +1,157 @@
+{
+    "site":{
+        "title": "Office Solutions in Wembley, London",
+        "brandName": "Office Solutions in Wembley, London",
+        "url": "https://wembley-offices.com",
+        "favicon32": "/favicon-32x32.png",
+        "favicon16": "/favicon-16x16.png",
+        "appleTouchIcon": "/apple-touch-icon.png",
+        "webmanifest": "/site.webmanifest",
+        "ogImage": "/og-wembley.jpg"
+    },
+    "page":{
+        "title": "Wembley Office Fitout & Refurbishment Services",
+        "description": "Expert office fitout and refurbishment services tailored for businesses in the Wembley area of London. Modernise your workspace for productivity and growth.",
+        "keywords": "Wembley London, office, refurbishment, fitout, design, workspace, business"
+    },
+    "hero":{
+        "slides": [
+            { "image": "assets/img/wembley-slide1.jpg" },
+            { "image": "assets/img/wembley-slide2.jpg" },
+            { "image": "assets/img/wembley-slide3.jpg" },
+            { "image": "assets/img/wembley-slide4.jpg" }
+        ],
+        "title": {
+            "line1": "Elevate Your",
+            "accent": "Workspace in Wembley"
+        },
+        "description": "Professional office refurbishment and fitout services in Wembley, London. Designed for retail, hospitality, and leisure sectors with premium finishes and efficient layouts.",
+        "primaryButton": {
+            "text": "See Our Projects",
+            "href": "#portfolio"
+        },
+        "secondaryButton": {
+            "text": "Request a Quote",
+            "href": "#contact"
+        }
+    },
+    "location":{
+        "title": "Located in the Heart of Wembley, London",
+        "description": "Wembley is a vibrant district known for its diverse population and vibrant nightlife. It's a great place to live and work.",
+        "mainImage": {
+            "src": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&h=600&fit=crop",
+            "alt": "Wembley area skyline, London"
+        },
+        "cards": [
+            { "label": "Walk to Wembley Stadium", "value": "1 min" },
+            { "label": "To Wembley Park", "value": "5 min" }
+        ],
+        "content": {
+            "title": "Unmatched Connectivity in Wembley",
+            "features": [
+                {
+                    "title": "Underground Network",
+                    "description": "Direct access to Jubilee, Metropolitan, and Hammersmith & City lines – making client meetings and commutes seamless."
+                },
+                {
+                    "title": "Historic & Modern Blend",
+                    "description": "Wembley combines rich history with cutting-edge business infrastructure. A perfect backdrop for modern firms."
+                },
+                {
+                    "title": "Proximity to Key Business Hubs",
+                    "description": "Easy access to Wembley Park and Wembley Stadium. Position your business in London’s commercial core."
+                }
+            ]
+        }
+    },
+    "amenities":{
+        "title": "Nearby Amenities in Wembley",
+        "description": "Premium amenities including exclusive restaurants, gyms, historic pubs, and luxury retail all within walking distance.",
+        "slides": [
+            {
+                "image": "https://images.unsplash.com/photo-1592928301478-4e6e6a3e6c84?w=800&h=600&fit=crop",
+                "alt": "Luxury retail",
+                "title": "Luxury Retail",
+                "subtitle": "Shopping and services",
+                "description": "High-end boutiques and retail experiences along Wembley High Road."
+            },
+            {
+                "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+                "alt": "Gym in Wembley",
+                "title": "Gyms and Fitness Clubs",
+                "subtitle": "Stay productive and healthy",
+                "description": "Modern fitness centres like Pure Gym and Fitness First nearby."
+            },
+            {
+                "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+                "alt": "Green space",
+                "title": "City Garden Spaces",
+                "subtitle": "Relax in the city",
+                "description": "Peaceful pockets like Wembley Park and Wembley Stadium for a quick reset."
+            }
+        ],
+        "categories": [
+            {
+                "title": "Professional Services",
+                "items": [
+                    "Leading legal and banking services",
+                    "Serviced business lounges and clubs",
+                    "Concierge and courier options"
+                ]
+            },
+            {
+                "title": "Culture & Heritage",
+                "items": [
+                    "The Wembley Stadium and Wembley Park Museum",
+                    "Historic architecture and walking tours",
+                    "Luxury hotels and heritage pubs"
+                ]
+            }
+        ]
+    },
+    "testimonials":{
+        "title": "What Businesses in Wembley Say",
+        "description": "Voices from the district — see how we’ve transformed office spaces in Wembley.",
+        "items": [
+            {
+                "quote": "A game-changer for our firm. The team delivered a tailored fitout that resonates with our identity in the heart of London’s retail world.",
+                "name": "Rachel Lowe",
+                "company": "Partner, Sterling & Lowe LLP",
+                "avatar": "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=100&h=100&fit=crop&crop=face"
+            },
+            {
+                "quote": "Slick, efficient and fully transparent. We moved into our new office within days — no delays, no compromises.",
+                "name": "Tom Evans",
+                "company": "Founder, Finora Capital",
+                "avatar": "https://images.unsplash.com/photo-1502767089025-6572583495b9?w=100&h=100&fit=crop&crop=face"
+            },
+            {
+                "quote": "The detail, the finish, and the professionalism were beyond our expectations. They made it easy to transition our team into a stunning new space.",
+                "name": "Priya Desai",
+                "company": "Director, Equinox Advisory",
+                "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face"
+            }
+        ]
+    },
+    "contact":{
+        "email": "info@wembley-offices.com",
+        "phone": "+44 20 7946 0958"
+    },
+    "navigation":{
+        "links": [
+            { "text": "Home", "href": "/" },
+            { "text": "Locations", "href": "#location" },
+            { "text": "Amenities", "href": "#amenities" },
+            { "text": "Testimonials", "href": "#testimonials" },
+            { "text": "Contact", "href": "#contact" }
+        ],
+        "callButton": {
+            "text": "Call Now",
+            "phone": "+44 20 7946 0958"
+        },
+        "quoteButton": {
+            "text": "Get Quote",
+            "href": "#contact"
+        }
+    }
+}

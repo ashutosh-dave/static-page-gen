@@ -1,0 +1,166 @@
+{
+    "site": {
+      "title": "Office Solutions in Bank, London",
+      "brandName": "Office Solutions in Bank, London",
+      "url": "https://bank-offices.com",
+      "favicon32": "/favicon-32x32.png",
+      "favicon16": "/favicon-16x16.png",
+      "appleTouchIcon": "/apple-touch-icon.png",
+      "webmanifest": "/site.webmanifest",
+      "ogImage": "/og-bank.jpg",
+      "homeUrl": "/"
+    },
+    "page": {
+      "title": "Bank, London Office Fitout & Refurbishment Services",
+      "description": "Expert office fitout and refurbishment services tailored for businesses in the Bank area of London. Modernise your workspace for productivity and growth.",
+      "keywords": "Bank London, office, refurbishment, fitout, design, workspace, business"
+    },
+    "hero": {
+      "slides": [
+        { "image": "assets/img/bank-slide1.jpg" },
+        { "image": "assets/img/bank-slide2.jpg" },
+        { "image": "assets/img/bank-slide3.jpg" },
+        { "image": "assets/img/bank-slide4.jpg" }
+      ],
+      "title": {
+        "line1": "Elevate Your",
+        "accent": "Workspace in Bank"
+      },
+      "description": "Professional office refurbishment and fitout services in Bank, London. Designed for financial, legal, and tech sectors with premium finishes and efficient layouts.",
+      "primaryButton": {
+        "text": "See Our Projects",
+        "href": "#portfolio"
+      },
+      "secondaryButton": {
+        "text": "Request a Quote",
+        "href": "#contact"
+      }
+    },
+    "location": {
+      "title": "Located in the Heart of Bank, London",
+      "description": "Bank is a prestigious business district known for its historic architecture and modern financial infrastructure.",
+      "mainImage": {
+        "src": "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=800&h=600&fit=crop",
+        "alt": "Bank area skyline, London"
+      },
+      "cards": [
+        { "label": "Walk to Bank Station", "value": "1 min" },
+        { "label": "To Liverpool Street", "value": "5 min" }
+      ],
+      "content": {
+        "title": "Unmatched Connectivity in Bank",
+        "features": [
+          {
+            "title": "Underground Network",
+            "description": "Direct access to Central, Northern, DLR, and Waterloo & City lines – making client meetings and commutes seamless."
+          },
+          {
+            "title": "Historic & Modern Blend",
+            "description": "Bank combines rich history with cutting-edge business infrastructure. A perfect backdrop for modern firms."
+          },
+          {
+            "title": "Proximity to Key Business Hubs",
+            "description": "Easy access to Moorgate, Liverpool Street, and Canary Wharf. Position your business in London’s commercial core."
+          }
+        ]
+      }
+    },
+    "amenities": {
+      "title": "Nearby Amenities in Bank",
+      "description": "Premium amenities including exclusive restaurants, gyms, historic pubs, and luxury retail all within walking distance.",
+      "slides": [
+        {
+          "image": "https://images.unsplash.com/photo-1592928301478-4e6e6a3e6c84?w=800&h=600&fit=crop",
+          "alt": "Luxury retail",
+          "title": "Luxury Retail",
+          "subtitle": "Shopping and services",
+          "description": "High-end boutiques and retail experiences along Cornhill and Lombard Street."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop",
+          "alt": "Gym in Bank",
+          "title": "Gyms and Fitness Clubs",
+          "subtitle": "Stay productive and healthy",
+          "description": "Modern fitness centres like Third Space and Fitness First nearby."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop",
+          "alt": "Green space",
+          "title": "City Garden Spaces",
+          "subtitle": "Relax in the city",
+          "description": "Peaceful pockets like Postman’s Park and Finsbury Circus for a quick reset."
+        },
+        {
+          "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop",
+          "alt": "Dining in Bank",
+          "title": "Fine Dining",
+          "subtitle": "Impress your clients",
+          "description": "Top spots like The Ned and Coq d’Argent for business lunches and celebrations."
+        }
+      ],
+      "categories": [
+        {
+          "title": "Professional Services",
+          "items": [
+            "Leading legal and banking services",
+            "Serviced business lounges and clubs",
+            "Concierge and courier options"
+          ]
+        },
+        {
+          "title": "Culture & Heritage",
+          "items": [
+            "The Royal Exchange and Bank of England Museum",
+            "Historic architecture and walking tours",
+            "Luxury hotels and heritage pubs"
+          ]
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Businesses in Bank Say",
+      "description": "Voices from the district — see how we’ve transformed office spaces in Bank.",
+      "items": [
+        {
+          "quote": "A game-changer for our firm. The team delivered a tailored fitout that resonates with our identity in the heart of London’s finance world.",
+          "name": "Rachel Lowe",
+          "company": "Partner, Sterling & Lowe LLP",
+          "avatar": "https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?w=100&h=100&fit=crop&crop=face"
+        },
+        {
+          "quote": "Slick, efficient and fully transparent. We moved into our new office within days — no delays, no compromises.",
+          "name": "Tom Evans",
+          "company": "Founder, Finora Capital",
+          "avatar": "https://images.unsplash.com/photo-1502767089025-6572583495b9?w=100&h=100&fit=crop&crop=face"
+        },
+        {
+          "quote": "The detail, the finish, and the professionalism were beyond our expectations. They made it easy to transition our team into a stunning new space.",
+          "name": "Priya Desai",
+          "company": "Director, Equinox Advisory",
+          "avatar": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop&crop=face"
+        }
+      ]
+    },
+    "contact": {
+      "email": "info@bank-offices.com",
+      "phone": "+44 20 7946 0958"
+    },
+    "navigation": {
+      "links": [
+        { "text": "Home", "href": "/" },
+        { "text": "Locations", "href": "#location" },
+        { "text": "Amenities", "href": "#amenities" },
+        { "text": "Testimonials", "href": "#testimonials" },
+        { "text": "Contact", "href": "#contact" }
+      ],
+      "callButton": {
+        "text": "Call Now",
+        "phone": "+44 20 7946 0958"
+      },
+      "quoteButton": {
+        "text": "Get Quote",
+        "href": "#contact"
+      }
+    }
+  }
+  

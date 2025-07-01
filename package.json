@@ -1,15 +1,55 @@
 {
   "name": "static-page-gen",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "A static site generator that creates PHP files from JSON content using Handlebars templates",
+  "main": "generate.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node generate.js",
+    "build:all": "node build-all.js",
+    "build:watch": "nodemon --watch content --watch template --ext json,hbs --exec 'node generate.js'",
+    "dev": "npm run build:watch",
+    "clean": "rimraf build/*",
+    "validate": "node -c generate.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint generate.js",
+    "format": "prettier --write generate.js",
+    "serve": "php -S localhost:8000 -t build",
+    "optimize": "node scripts/optimize.js",
+    "deploy": "npm run build && npm run optimize"
   },
-  "keywords": [],
+  "keywords": [
+    "static-site-generator",
+    "php",
+    "handlebars",
+    "template",
+    "json",
+    "build-tool"
+  ],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
     "handlebars": "^4.7.8"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "rimraf": "^5.0.5",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "chalk": "^4.1.2",
+    "minify": "^9.2.0",
+    "imagemin": "^8.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^9.0.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
 }
